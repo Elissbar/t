@@ -1,0 +1,102 @@
+Для использования Redux, нужно обернуть все приложение в Provider(импортируется из "react-redux") и передать в провайдер store.
+
+ПРИМЕР:
+const composeEnhancers =
+  typeof window === 'object' &&
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?   
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+    }) : compose;
+
+const store = createStore(rootReducer, composeEnhancers(
+  applyMiddleware(loginMiddleware, thunk)
+));
+
+const app = (
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>
+);
+
+Функция createStore - создает store (импортируется из 'redux').
+rootReducer - функция, где комбинируются редюсеры(читать ниже).
+
+
+============================================
+
+Функция combineReducers - нужна для комбинирования редюсеров(т.е. самих состояний)
+
+ПРИМЕР:
+import { combineReducers } from 'redux'
+import {Registration} from './registration'
+import {Auth} from './auth'
+
+export default combineReducers({
+    regist: Registration,
+    auth: Auth
+})
+
+где Registration и Auth - редюсеры.
+Обычно редюсеры указываются в самой папке с файлом , в котором комбинируются редюсеры.
+
+
+composeEnhancers - функция для использования девтулса Redux. Необходимо импортировать функцию - compose из 'redux'.
+const composeEnhancers =
+  typeof window === 'object' &&
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?   
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+    }) : compose;
+
+
+applyMiddleware - функция нужна для использования thunk(импортируется из 'redux-thunk') - для ассинхронных запросов.
+
+loginMiddleware - функция-замыкание, позволяет отслеживать изменения, не обязательно.
+const loginMiddleware = store => next => action => {
+  const result = next(action)
+  console.log("Middleware", result)
+  return result
+}
+
+================================
+
+В редюсерах прописывается первоначальное состояние
+и функция, в которой изменяется состояние, в зависимости от пришедшего action'а
+
+ПРИМЕР:
+const inintialState = {
+        email: {
+          value: "",
+          type: "email",
+}
+
+export const Registration = (state = inintialState, action) => {
+    
+    switch(action.type) {
+        case 'INPUTS_HANDLER':
+            return {
+                ...state,
+                formInputsControl: action.formInputsControl
+            }
+        default:
+            return state
+    }
+
+}
+
+================================================
+
+Чтобы использовать Redux все компоненты должны оборачиваться в функцию connect (импортируется из 'react-redux').
+Функция возвращает другую функцию, в которую и нужно передать компонент, в котором используется redux
+
+ПРИМЕР:
+connect(mapStateToProps, mapDispatchToProps)(Component) 
+
+mapStateToProps - функция принимает state и возвращает объект, в котором все свойства берутся из state. Свойства из объекта затем берутся из props'а.
+
+mapDispatchToProps - функция принимает dispatch и возвращает объект с методами(action), методы берутся из props. 
+
+Action'ы лучше прописывать в других файлах и импортировать в компоненты.
+
+=========================================
+

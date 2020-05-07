@@ -1,0 +1,15 @@
+GIT 
+Чтобы запушить изменение:
+-- git add -A (добавляет все недостающие изменения)
+-- git commit -a -m 'name commit' (добавление новой точки, название)
+-- git status (проверка изменений, можно узнать за какими файлами следит/нет Git) 
+-- git log (посмотреть все точки)
+-- git remote add origin https://github.com/Elissbar/react-app-tests.git
+-- git push -u origin master -> git push(запушить в git изменения)
+-- git checkout src/...pathname (откатить последние изменения в конкретном файле)
+-- git checkout ..number (откатиться с конкретной точке);
+  --- сначала нужно запустить команду gitk --all - откроется панель со всеми точками, там можно найти number нужной точки.
+
+
+
+

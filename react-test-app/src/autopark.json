@@ -1,0 +1,46 @@
+{
+  "select": [
+    {
+      "name": "LADA",
+      "dopname": "Comfort Vesta Cross",
+      "src": "https://s.auto.drom.ru/i24210/c/photos/fullsize/lada/vesta_cross/lada_vesta_cross_728341.jpg",
+      "price": "791000",
+      "id": "1"
+    },
+    {
+      "name": "LADA",
+      "dopname": "Luxe Vesta Cross",
+      "src": "https://allcarz.b-cdn.net/wp-content/uploads/2018/04/foto-vesta-cross-sedan_01.jpg",
+      "price": "806000",
+      "id": "2"
+    },
+    {
+      "name": "Toyota",
+      "dopname": "Camry",
+      "src": "https://t1-cms-ru.images.toyota-europe.com/toyotaone/ruru/camry_before_after-1_tcm-3020-1331465.jpg",
+      "price": "1573000",
+      "id": "3"
+    },
+    {
+      "name": "LADA",
+      "dopname": "Comfort Vesta Cross",
+      "src": "https://s.auto.drom.ru/i24210/c/photos/fullsize/lada/vesta_cross/lada_vesta_cross_728341.jpg",
+      "price": "791000",
+      "id": "4"
+    },
+    {
+      "name": "LADA",
+      "dopname": "Luxe Vesta Cross",
+      "src": "https://allcarz.b-cdn.net/wp-content/uploads/2018/04/foto-vesta-cross-sedan_01.jpg",
+      "price": "806000",
+      "id": "5"
+    },
+    {
+      "name": "bmw",
+      "dopname": "Camry",
+      "src": "https://t1-cms-ru.images.toyota-europe.com/toyotaone/ruru/camry_before_after-1_tcm-3020-1331465.jpg",
+      "price": "1573000",
+      "id": "6"
+    }
+  ]
+}
